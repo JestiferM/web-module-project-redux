@@ -9,7 +9,7 @@ const Movie = (props) => {
     const { id } = useParams();
     const { push } = useHistory();
 
-    const { movies, deleteMovie } = props;
+    const { movies, displayFavorties, deleteMovie } = props;
     const movie = movies.find(movie=>movie.id===Number(id));
     
     const handleDeleteClick = () => {
@@ -58,7 +58,8 @@ const Movie = (props) => {
 
 const mapStateToProps = (state) =>{
     return ({
-        movies:state.movies
+        displayFavorties: state.favortiesReducer.displayFavorties,
+        movies:state.movieReducer.movies
     });
 }
 
